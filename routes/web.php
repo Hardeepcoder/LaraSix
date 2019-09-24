@@ -24,9 +24,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
             return view('admin.index');
     });
 
-    Route::get('addPost', function(){
-        return view('admin.addPost');
 });
 
-});
 Route::get('/logout', 'Auth\LoginController@logout');
