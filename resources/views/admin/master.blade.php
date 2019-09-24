@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css"> </head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-  <body class="h-100">
+    <body class="h-100">
    
    
     <div class="container-fluid">
@@ -116,10 +116,10 @@
               </nav>
             </nav>
           </div>
-          <!-- / .main-navbar -->
           <div id="app">
-         @yield('content')
-         </div>
+           @yield('content')
+          </div>
+        
           <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
             <ul class="nav">
               <li class="nav-item">
@@ -154,8 +154,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src="{{Config::get('app.url')}}/admin_theme/scripts/extras.1.1.0.min.js"></script>
     <script src="{{Config::get('app.url')}}/admin_theme/scripts/shards-dashboards.1.1.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.min.js"></script>
-    <script src="{{Config::get('app.url')}}/admin_theme/scripts/app/app-blog-new-post.1.1.0.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.min.js"></script>
+    <script src="{{Config::get('app.url')}}/admin_theme/scripts/app/app-blog-new-post.1.1.0.js"></script> -->
     <script src="{{Config::get('app.url')}}/public/js/app.js"></script>
   </body>
 </html>
