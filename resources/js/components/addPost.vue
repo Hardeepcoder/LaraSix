@@ -19,8 +19,14 @@
                     
                       <input class="form-control form-control-lg mb-3"
                        type="text" placeholder="Your Post Title" v-model="title">
+                       <p class="text-danger" v-if="!$v.title.required">Please enter title</p>
+                       <p class="text-danger" v-if="!$v.title.hardeep">Please enter alteast 4</p>
+                      
                        <vue-editor v-model="content"></vue-editor>
+                        <p class="text-danger" v-if="!$v.content.required">Please fill the content</p>
+                     
                   </div>
+                 
                 </div>
                 <!-- / Add New Post Form -->
               </div>
@@ -50,6 +56,7 @@
 </template>
 
 <script>
+import {required, minLength} from "vuelidate/lib/validators"
 import { VueEditor } from "vue2-editor";
     export default {
         mounted() {
@@ -58,12 +65,25 @@ import { VueEditor } from "vue2-editor";
         data(){
             return{
             title:'',
-            content:''
+            content:'',
+
             }
+        },
+        validations:{
+          title:{
+            required,
+            hardeep: minLength(4)
+          },
+          content:{
+            required
+          }
+          
         },
         methods:{
             addPostfun(){
-            alert('button click');
+                alert(this.title);
+              
+              
             }
         }
     }
