@@ -1921,7 +1921,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addPostfun: function addPostfun() {
-      alert(this.title);
+      axios.post('addPost', {
+        title: this.title,
+        content: this.content
+      }).then(function (res) {
+        alert('Data is entered');
+      })["catch"](function (error) {
+        alert(error);
+      });
     }
   }
 });
@@ -50922,7 +50929,7 @@ var render = function() {
                     _vm._v(" "),
                     !_vm.$v.title.hardeep
                       ? _c("p", { staticClass: "text-danger" }, [
-                          _vm._v("Please enter alteast 4")
+                          _vm._v("Please enter atleast 4")
                         ])
                       : _vm._e(),
                     _vm._v(" "),

@@ -16,11 +16,10 @@
                 <!-- Add New Post Form -->
                 <div class="card card-small mb-3">
                   <div class="card-body">
-                    
                       <input class="form-control form-control-lg mb-3"
                        type="text" placeholder="Your Post Title" v-model="title">
                        <p class="text-danger" v-if="!$v.title.required">Please enter title</p>
-                       <p class="text-danger" v-if="!$v.title.hardeep">Please enter alteast 4</p>
+                       <p class="text-danger" v-if="!$v.title.hardeep">Please enter atleast 4</p>
                       
                        <vue-editor v-model="content"></vue-editor>
                         <p class="text-danger" v-if="!$v.content.required">Please fill the content</p>
@@ -35,6 +34,7 @@
                 <div class='card card-small mb-3'>
                   <div class="card-header border-bottom">
                     <h6 class="m-0">Actions</h6>
+                    
                   </div>
                   <div class='card-body p-0'>
                     <ul class="list-group list-group-flush">
@@ -66,7 +66,6 @@ import { VueEditor } from "vue2-editor";
             return{
             title:'',
             content:'',
-
             }
         },
         validations:{
@@ -81,8 +80,18 @@ import { VueEditor } from "vue2-editor";
         },
         methods:{
             addPostfun(){
-                alert(this.title);
-              
+
+              axios.post('addPost',{
+                title: this.title,
+                content: this.content
+              })
+              .then((res)=>{
+                alert('Data is entered');
+              })
+              .catch(function(error){
+                alert(error);
+              });
+            
               
             }
         }
