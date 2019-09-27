@@ -1921,14 +1921,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addPostfun: function addPostfun() {
-      axios.post('addPost', {
-        title: this.title,
-        content: this.content
-      }).then(function (res) {
-        alert('Data is entered');
-      })["catch"](function (error) {
-        alert(error);
-      });
+      alert('button clicked');
     }
   }
 });

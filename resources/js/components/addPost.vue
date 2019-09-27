@@ -80,17 +80,7 @@ import { VueEditor } from "vue2-editor";
         },
         methods:{
             addPostfun(){
-
-              axios.post('addPost',{
-                title: this.title,
-                content: this.content
-              })
-              .then((res)=>{
-                alert('Data is entered');
-              })
-              .catch(function(error){
-                alert(error);
-              });
+              alert('button clicked');
             
               
             }
