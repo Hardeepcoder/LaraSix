@@ -14,7 +14,13 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                @foreach(App\news::all() as $news)
+
+
+                <h3>{{$news->title}}</h3>
+                {!!$news->content!!}
+                <hr/>
+                @endforeach
                 </div>
             </div>
         </div>

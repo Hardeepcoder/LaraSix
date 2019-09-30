@@ -16,16 +16,15 @@
                 <!-- Add New Post Form -->
                 <div class="card card-small mb-3">
                   <div class="card-body">
-                      <input class="form-control form-control-lg mb-3"
-                       type="text" placeholder="Your Post Title" v-model="title">
-                       <p class="text-danger" v-if="!$v.title.required">Please enter title</p>
-                       <p class="text-danger" v-if="!$v.title.hardeep">Please enter atleast 4</p>
                       
-                       <vue-editor v-model="content"></vue-editor>
-                        <p class="text-danger" v-if="!$v.content.required">Please fill the content</p>
-                     
+                      <input class="form-control form-control-lg mb-3" type="text" 
+                      placeholder="Your Post Title" v-model="title">
+                      <p class="text-danger" v-if="!$v.title.required">Please enter title</p>
+                      <p class="text-danger" v-if="!$v.title.hardeep">Please enter atleast 4</p>
+                      <!-- Txt Editor -->
+                      <vue-editor v-model="content"></vue-editor>
+                      <p class="text-danger" v-if="!$v.content.required">Please fill the content</p>
                   </div>
-                 
                 </div>
                 <!-- / Add New Post Form -->
               </div>
@@ -40,7 +39,7 @@
                     <ul class="list-group list-group-flush">
                     
                       <li class="list-group-item d-flex px-3">
-                        <button type="submit" class="btn btn-accent ml-auto btn-md btn-block">
+                        <button type="submit" :disabled="$v.$invalid" class="btn btn-accent ml-auto btn-md btn-block">
                           <i class="material-icons">file_copy</i> Publish </button>
                       </li>
                     </ul>
@@ -80,7 +79,17 @@ import { VueEditor } from "vue2-editor";
         },
         methods:{
             addPostfun(){
-              alert('button clicked');
+             // alert('button clicked');
+             axios.post('addPost',{
+               'title': this.title,
+               'content': this.content
+             }).then((res)=>{
+               console.log(res);
+               alert(res);
+             }).catch(function(error){
+               console.log(error);
+                 alert(error);
+             });
             
               
             }

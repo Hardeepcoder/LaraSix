@@ -1897,7 +1897,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1921,7 +1920,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addPostfun: function addPostfun() {
-      alert('button clicked');
+      // alert('button clicked');
+      axios.post('addPost', {
+        'title': this.title,
+        'content': this.content
+      }).then(function (res) {
+        console.log(res);
+        alert(res);
+      })["catch"](function (error) {
+        console.log(error);
+        alert(error);
+      });
     }
   }
 });
@@ -50947,7 +50956,32 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(1)
+            _c("div", { staticClass: "col-lg-3 col-md-12" }, [
+              _c("div", { staticClass: "card card-small mb-3" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body p-0" }, [
+                  _c("ul", { staticClass: "list-group list-group-flush" }, [
+                    _c("li", { staticClass: "list-group-item d-flex px-3" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "btn btn-accent ml-auto btn-md btn-block",
+                          attrs: { type: "submit", disabled: _vm.$v.$invalid }
+                        },
+                        [
+                          _c("i", { staticClass: "material-icons" }, [
+                            _vm._v("file_copy")
+                          ]),
+                          _vm._v(" Publish ")
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
           ])
         ]
       )
@@ -50977,32 +51011,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-3 col-md-12" }, [
-      _c("div", { staticClass: "card card-small mb-3" }, [
-        _c("div", { staticClass: "card-header border-bottom" }, [
-          _c("h6", { staticClass: "m-0" }, [_vm._v("Actions")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body p-0" }, [
-          _c("ul", { staticClass: "list-group list-group-flush" }, [
-            _c("li", { staticClass: "list-group-item d-flex px-3" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-accent ml-auto btn-md btn-block",
-                  attrs: { type: "submit" }
-                },
-                [
-                  _c("i", { staticClass: "material-icons" }, [
-                    _vm._v("file_copy")
-                  ]),
-                  _vm._v(" Publish ")
-                ]
-              )
-            ])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "card-header border-bottom" }, [
+      _c("h6", { staticClass: "m-0" }, [_vm._v("Actions")])
     ])
   }
 ]

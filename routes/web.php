@@ -14,9 +14,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
     Route::get('/', function(){
             return view('admin.index');
     });
-    Route::any('addPost', function(){
-        return view('admin.addPost');
-    });
+    Route::any('addPost', 'adminController@addPost');
 
 });
 
