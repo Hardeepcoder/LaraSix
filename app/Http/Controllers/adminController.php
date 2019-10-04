@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+use App\news;
 class adminController extends Controller
 {
    public function addPost(Request $request){
@@ -29,4 +30,19 @@ class adminController extends Controller
        }
       
    }
+
+
+   public function posts(Request $request){
+       if($request->isMethod('post')){
+        return $request->all();
+       }
+       else
+       {
+        $data = news::orderBy('id','DESC')->get();
+        return view('admin.posts',['data' => $data]);
+       }
+   }
+
+
+
 }
