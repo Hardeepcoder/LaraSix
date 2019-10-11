@@ -9,6 +9,6 @@
               </div>
             </div>
 
-            <all-posts></all-posts>
+          <all-posts></all-posts>
 </div>
 @endsection
