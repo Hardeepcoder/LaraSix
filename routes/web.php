@@ -8,7 +8,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
 //admin 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function(){
     Route::get('/', function(){
@@ -16,7 +15,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
     });
     Route::any('addPost', 'adminController@addPost');
     Route::any('posts', 'adminController@posts');
-
 });
-
+Route::any('allposts','adminController@allposts');
 Route::get('/logout', 'Auth\LoginController@logout');
