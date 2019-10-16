@@ -3,6 +3,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 Vue.component('add-post', require('./components/addPost.vue').default);
+Vue.component('all-posts', require('./components/allPosts.vue').default);
 Vue.component('page-number', require('laravel-vue-pagination'));
 
 import Vuelidate from 'vuelidate'
@@ -12,7 +13,7 @@ Vue.use(Vuelidate)
 const app = new Vue({
     el: '#app',
     data:{
-        news:[]
+        news:[],
     },
     created(){
         this.allposts()

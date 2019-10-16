@@ -67,7 +67,7 @@ import { VueEditor } from "vue2-editor";
             content:'',
             }
         },
-        validations:{
+         validations:{
           title:{
             required,
             hardeep: minLength(4)
@@ -75,11 +75,9 @@ import { VueEditor } from "vue2-editor";
           content:{
             required
           }
-          
         },
         methods:{
             addPostfun(){
-             // alert('button clicked');
              axios.post('addPost',{
                'title': this.title,
                'content': this.content
@@ -89,9 +87,7 @@ import { VueEditor } from "vue2-editor";
              }).catch(function(error){
                console.log(error);
                  alert(error);
-             });
-            
-              
+             }); 
             }
         }
     }

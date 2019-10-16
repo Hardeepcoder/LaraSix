@@ -1,4 +1,8 @@
 <template>
+<div>
+  <div class="row">
+    <input type="text" v-model="keywords"/>
+    </div>
        <div class="row">
               <div class="col-lg-3 col-md-6 col-sm-12 mb-4" v-for='post in news' :key='post.id'>
                 <div class="card card-small card-post h-100">
@@ -21,6 +25,8 @@
               </div>
              
             </div>
+            </div>
+        
 </template>
 
 <script>
@@ -32,17 +38,22 @@
         data(){
             return{
             news:[],
+            keywords:''
             }
         },
-     
+        watch:{
+          keywords(after,before){
+            this.getPostsFun();
+          }
+        },
+       
         methods:{
             getPostsFun(){
                 let self = this;
-             // alert('button clicked');
-            axios.get('../api/news').then(function(res){
-                console.log(res.data);
-                self.news = res.data;
-            });
+              axios.get('../api/news',{params: {keywords: this.keywords}}).then(function(res){
+                  console.log(res.data);
+                  self.news = res.data;
+              });
             
               
             }
