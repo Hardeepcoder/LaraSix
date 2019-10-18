@@ -18,5 +18,9 @@ class apiController extends Controller
         return cats::all();
     }
 
-   
+    public function allposts(Request $request){
+      
+        $data = news::paginate(12);
+        return response()->json($data);
+       } 
 }

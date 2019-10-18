@@ -1,4 +1,3 @@
-
 require('./bootstrap');
 window.Vue = require('vue');
 
@@ -18,7 +17,7 @@ const app = new Vue({
     created(){
         this.allposts()
     },
-
+   
     methods:{
         allposts(page){
             Axios.get('http://localhost:8888/larasix/allposts?page=' + page).then(res=>{

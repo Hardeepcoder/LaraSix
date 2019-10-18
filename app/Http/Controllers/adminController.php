@@ -43,8 +43,5 @@ class adminController extends Controller
        }
    }
 
-   public function allposts(){
-    $data = news::paginate(2);
-    return response()->json($data);
-   }
+  
 }

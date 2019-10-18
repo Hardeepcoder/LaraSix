@@ -10,7 +10,7 @@
               </div>
             </div>
             <!-- End Page Header -->
-
+          
             <div class="row">
               <div class="col-lg-9 col-md-12">
                 <!-- Add New Post Form -->

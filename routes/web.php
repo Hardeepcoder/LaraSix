@@ -17,5 +17,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
     Route::any('posts', 'adminController@posts');
 
 });
-Route::any('allposts','adminController@allposts');
+Route::any('allposts','apiController@allposts');
 Route::get('/logout', 'Auth\LoginController@logout');
