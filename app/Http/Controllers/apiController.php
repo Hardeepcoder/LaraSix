@@ -19,8 +19,11 @@ class apiController extends Controller
     }
 
     public function allposts(Request $request){
-      
+        if(!empty($request->cat)){
+            $data = news::whereIn('cat_id',$request->cat)->paginate(12);
+            return response()->json($data);
+        }
         $data = news::paginate(12);
         return response()->json($data);
-       } 
+    } 
 }

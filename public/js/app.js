@@ -66835,16 +66835,26 @@ Vue.use(vuelidate__WEBPACK_IMPORTED_MODULE_0___default.a);
 var app = new Vue({
   el: '#app',
   data: {
-    news: []
+    news: [],
+    cat: []
   },
   created: function created() {
     this.allposts();
+  },
+  watch: {
+    cat: function cat(after, before) {
+      this.allposts();
+    }
   },
   methods: {
     allposts: function allposts(page) {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8888/larasix/allposts?page=' + page).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8888/larasix/allposts?page=' + page, {
+        params: {
+          cat: this.cat
+        }
+      }).then(function (res) {
         _this.news = res.data;
       });
     }

@@ -18,6 +18,18 @@
 
     <!-- Styles -->
     <link href="{{Config::get('app.url')}}/public/css/app.css" rel="stylesheet">
+    <style>
+    input.mycat{
+        display:none;
+    }
+    input.mycat:checked + label{
+        background:green;
+        color:#fff;
+        box-shadow: 0px 1px 3px inset;
+    }
+
+</style>
+
 </head>
 <body>
     <div id="app">

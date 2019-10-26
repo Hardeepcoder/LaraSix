@@ -13,14 +13,20 @@ const app = new Vue({
     el: '#app',
     data:{
         news:[],
+        cat:[]
     },
     created(){
         this.allposts()
     },
+    watch:{
+        cat(after,before){
+            this.allposts()
+        }
+    },
    
     methods:{
         allposts(page){
-            Axios.get('http://localhost:8888/larasix/allposts?page=' + page).then(res=>{
+            Axios.get('http://localhost:8888/larasix/allposts?page=' + page, {params:{cat:this.cat}}).then(res=>{
              this.news = res.data
             });
         }
