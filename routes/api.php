@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::any('cats','apiController@cats');
 Route::any('news','apiController@news');
+
+Route::post('login','apiController@login');
