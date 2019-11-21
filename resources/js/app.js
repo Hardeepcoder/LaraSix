@@ -4,6 +4,8 @@ window.Vue = require('vue');
 Vue.component('add-post', require('./components/addPost.vue').default);
 Vue.component('all-posts', require('./components/allPosts.vue').default);
 Vue.component('page-number', require('laravel-vue-pagination'));
+Vue.component('load-posts', require('./components/loadPosts.vue').default);
+Vue.component('InfiniteLoading', require('vue-infinite-loading'));
 
 import Vuelidate from 'vuelidate'
 import Axios from 'axios';

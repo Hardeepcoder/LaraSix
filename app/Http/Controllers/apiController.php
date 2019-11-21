@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\news;
 use App\cats;
+use App\User;
+use Auth;
 class apiController extends Controller
 {
     public function news(Request $request){
@@ -25,5 +27,10 @@ class apiController extends Controller
         }
         $data = news::paginate(12);
         return response()->json($data);
-    } 
+    }
+    
+   
+
+
+
 }

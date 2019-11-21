@@ -7,6 +7,10 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('test', function(){
+    return view('loadPost');
+})->name('test');
+
 
 //admin 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function(){

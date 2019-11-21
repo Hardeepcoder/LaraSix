@@ -58,9 +58,9 @@
 import {required, minLength} from "vuelidate/lib/validators"
 import { VueEditor } from "vue2-editor";
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }, 
+        mounted(){
+            console.log('Component mounted.');
+        },
         data(){
             return{
             title:'',
@@ -77,6 +77,7 @@ import { VueEditor } from "vue2-editor";
           }
         },
         methods:{
+          
             addPostfun(){
              axios.post('addPost',{
                'title': this.title,
